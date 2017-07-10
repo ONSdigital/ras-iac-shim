@@ -1,0 +1,51 @@
+consumes: [application/json]
+host: localhost:8080
+info: {title: IAC Service, version: 0.0.1}
+paths:
+  /iacs/{id}:
+    get:
+      description: will return the details of the case context associated with the
+        Internet Access Code
+      operationId: stub1
+      parameters:
+      - {description: Internet access code, in: path, name: id, required: true, type: string}
+      responses:
+        '200': {description: Success}
+        '404': {description: An HTTP 404 Not Found status code is returned if the
+            specified Internet Access Code could not be found.}
+        default: {description: Error}
+      tags: [IAC]
+      x-swagger-router-controller: controllers.iac
+    post:
+      description: will create a batch (may be one) of Internet Access Code. A maximum
+        of 1,000 IACs may be created per request and IACs are immediately marked as
+        active when created.
+      operationId: stub2
+      parameters:
+      - {description: Internet access code, in: path, name: id, required: true, type: string}
+      responses:
+        '201': {description: An HTTP 201 Created status code is returned if the Internet
+            Access Code batch creation was a success}
+        '400': {description: An HTTP 400 Bad Request is returned if any of the required
+            parameters are missing.}
+        default: {description: Error}
+      tags: [IAC]
+      x-swagger-router-controller: controllers.iac
+    put:
+      description: will update the Internet Access Code fb747cq725lj to record that
+        it is no longer active.
+      operationId: stub3
+      parameters:
+      - {description: Internet access code, in: path, name: id, required: true, type: string}
+      responses:
+        '200': {description: Success}
+        '404': {description: An HTTP 404 Not Found status code is returned if the
+            specified Internet Access Code could not be found.}
+        default: {description: Error}
+      tags: [IAC]
+      x-swagger-router-controller: controllers.iac
+produces: [application/json]
+schemes: [http, https]
+swagger: '2.0'
+tags:
+- {description: Internet Access Code Service, name: IAC}
